@@ -1,0 +1,28 @@
+try
+        {
+            File nomFichier = new File("Abonnés.txt");
+			nomFichier.createNewFile();
+            String ligne = "";
+            BufferedReader lecteurFichier = null; // initialisation à “rien”
+ 
+            lecteurFichier = new BufferedReader(new FileReader(nomFichier));
+ 
+            while ((ligne = lecteurFichier.readLine()) != null)
+            {
+                if (ligne.equals(courriel) && (!trouve))
+                {
+                    System.out.println("Trouvé");
+                    trouve = true;
+                    nbTrouves++;
+                }
+                else
+                {
+                    System.out.println("Pas trouvé");
+                }
+                lecteurFichier.close();
+            }
+        }
+        catch (java.io.FileNotFoundException e)
+        {
+            File nomFichier = new File("Abonnés.txt");
+        }
